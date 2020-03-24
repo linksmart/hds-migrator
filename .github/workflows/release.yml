@@ -8,6 +8,8 @@ jobs:
     - uses: actions/checkout@master
     - name: GoReleaser Action
       uses: goreleaser/goreleaser-action@v1.3.1
+      with:
+        go-version: 1.14.x
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: "386"
@@ -19,6 +21,8 @@ jobs:
     - uses: actions/checkout@master
     - name: GoReleaser Action
       uses: goreleaser/goreleaser-action@v1.3.1
+      with:
+        go-version: 1.14.x
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
@@ -30,6 +34,8 @@ jobs:
     - uses: actions/checkout@master
     - name: GoReleaser Action
       uses: goreleaser/goreleaser-action@v1.3.1
+      with:
+        go-version: 1.14.x
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: "386"
@@ -41,6 +47,8 @@ jobs:
     - uses: actions/checkout@master
     - name: GoReleaser Action
       uses: goreleaser/goreleaser-action@v1.3.1
+      with:
+        go-version: 1.14.x
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
@@ -52,6 +60,8 @@ jobs:
     - uses: actions/checkout@master
     - name: GoReleaser Action
       uses: goreleaser/goreleaser-action@v1.3.1
+      with:
+        go-version: 1.14.x
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: "386"
@@ -63,6 +73,8 @@ jobs:
     - uses: actions/checkout@master
     - name: GoReleaser Action
       uses: goreleaser/goreleaser-action@v1.3.1
+      with:
+        go-version: 1.14.x
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOARCH: amd64
