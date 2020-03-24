@@ -1,4 +1,4 @@
-on: [label]
+on: [release]
 name: Go Release
 jobs:
   release-linux-386:
