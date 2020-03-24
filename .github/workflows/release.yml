@@ -1,5 +1,5 @@
 name: Go-Release
-on: [push]
+on: [release]
 jobs:
   release-linux-386:
     name: release linux/386
