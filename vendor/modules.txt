@@ -1,0 +1,48 @@
+# github.com/eclipse/paho.mqtt.golang v1.2.0
+github.com/eclipse/paho.mqtt.golang
+github.com/eclipse/paho.mqtt.golang/packets
+# github.com/farshidtz/elog v1.0.1
+github.com/farshidtz/elog
+# github.com/farshidtz/senml/v2 v2.0.0-beta.3
+github.com/farshidtz/senml/v2
+github.com/farshidtz/senml/v2/codec
+# github.com/fxamacker/cbor/v2 v2.2.0
+github.com/fxamacker/cbor/v2
+# github.com/golang/snappy v0.0.1
+github.com/golang/snappy
+# github.com/gorilla/mux v1.7.4
+github.com/gorilla/mux
+# github.com/linksmart/go-sec v1.0.1
+github.com/linksmart/go-sec/auth/obtainer
+github.com/linksmart/go-sec/authz
+# github.com/linksmart/historical-datastore v1.0.0-beta.6
+## explicit
+github.com/linksmart/historical-datastore/common
+github.com/linksmart/historical-datastore/data
+github.com/linksmart/historical-datastore/registry
+# github.com/linksmart/service-catalog/v2 v2.4.1
+github.com/linksmart/service-catalog/v2/utils
+# github.com/linksmart/service-catalog/v3 v3.0.0-beta.1
+## explicit
+github.com/linksmart/service-catalog/v3/utils
+# github.com/mattn/go-sqlite3 v2.0.3+incompatible
+github.com/mattn/go-sqlite3
+# github.com/syndtr/goleveldb v1.0.0
+github.com/syndtr/goleveldb/leveldb
+github.com/syndtr/goleveldb/leveldb/cache
+github.com/syndtr/goleveldb/leveldb/comparer
+github.com/syndtr/goleveldb/leveldb/errors
+github.com/syndtr/goleveldb/leveldb/filter
+github.com/syndtr/goleveldb/leveldb/iterator
+github.com/syndtr/goleveldb/leveldb/journal
+github.com/syndtr/goleveldb/leveldb/memdb
+github.com/syndtr/goleveldb/leveldb/opt
+github.com/syndtr/goleveldb/leveldb/storage
+github.com/syndtr/goleveldb/leveldb/table
+github.com/syndtr/goleveldb/leveldb/util
+# github.com/x448/float16 v0.8.4
+github.com/x448/float16
+# golang.org/x/net v0.0.0-20200301022130-244492dfa37a
+golang.org/x/net/internal/socks
+golang.org/x/net/proxy
+golang.org/x/net/websocket
