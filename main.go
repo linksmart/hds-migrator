@@ -71,18 +71,18 @@ func main() {
 		page++
 
 		for _, stream := range streamList.Streams {
-			fmt.Printf("copying the stream %s", stream.Name)
+			fmt.Println("copying the stream ", stream.Name)
 			_, err := dstRegClient.Add(&stream)
 			if err != nil {
 				if !strings.HasPrefix(err.Error(), strconv.Itoa(http.StatusConflict)) {
-					fmt.Printf("Error creating the registry entry for %s.. Skipping:%s", stream.Name, err)
+					fmt.Printf("Error creating the registry entry for %s.. Skipping:%s\n", stream.Name, err)
 					continue //to next stream
 				}
 			}
 
 			err = copyData(sourceUrl, dstDataClient, stream)
 			if err != nil {
-				fmt.Printf("Error copying the data entry:%v", err)
+				fmt.Println("Error copying the data entry:", err)
 				continue //to next stream
 			}
 		}
