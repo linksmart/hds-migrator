@@ -9,8 +9,9 @@ jobs:
         include:
           - go-os: linux
             go-arch: arm
+          - go-os: linux
+            go-arch: arm64
     runs-on: ubuntu-latest
-
     steps:
     - name: Install Go
       uses: actions/setup-go@v1
