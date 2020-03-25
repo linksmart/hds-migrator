@@ -29,6 +29,7 @@ jobs:
         # Directory containing files to upload
         path: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
     - name: Release
+      if: github.ref == 'ref/head/v*'
       uses: softprops/action-gh-release@v0.1.5
       with:
         files: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
