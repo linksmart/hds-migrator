@@ -1,81 +1,22 @@
 name: Go-Release
-on: [release]
+on:
+  push:
+    tags:
+      - '*'
 jobs:
-  release-linux-386:
-    name: release linux/386
+  release-all-platforms: 
+    strategy:
+      matrix:
+        goarch: [amd64]
+        goos: [linux, darwin,windows ]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: GoReleaser Action
+    - name: release
       uses: goreleaser/goreleaser-action@v1.3.1
       with:
         go-version: 1.14.x
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOARCH: "386"
-        GOOS: linux
-  release-linux-amd64:
-    name: release linux/amd64
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: GoReleaser Action
-      uses: goreleaser/goreleaser-action@v1.3.1
-      with:
-        go-version: 1.14.x
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOARCH: amd64
-        GOOS: linux
-  release-darwin-386:
-    name: release darwin/386
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: GoReleaser Action
-      uses: goreleaser/goreleaser-action@v1.3.1
-      with:
-        go-version: 1.14.x
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOARCH: "386"
-        GOOS: darwin
-  release-darwin-amd64:
-    name: release darwin/amd64
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: GoReleaser Action
-      uses: goreleaser/goreleaser-action@v1.3.1
-      with:
-        go-version: 1.14.x
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOARCH: amd64
-        GOOS: darwin
-  release-windows-386:
-    name: release windows/386
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: GoReleaser Action
-      uses: goreleaser/goreleaser-action@v1.3.1
-      with:
-        go-version: 1.14.x
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOARCH: "386"
-        GOOS: windows
-  release-windows-amd64:
-    name: release windows/amd64
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: GoReleaser Action
-      uses: goreleaser/goreleaser-action@v1.3.1
-      with:
-        go-version: 1.14.x
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOARCH: amd64
-        GOOS: windows
+        GOARCH: ${{ matrix.goarch }}
+        GOOS: ${{ matrix.goos }}
