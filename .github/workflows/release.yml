@@ -1,29 +1,30 @@
-name: goreleaser
-
-on:
-  pull_request:
-  push:
-
+on: [push, pull_request]
+name: Test
 jobs:
-  goreleaser:
+  test:
+
+    strategy:
+      matrix:
+        go-os: [linux, darwin, windows]
+        go-arch: [amd64]
     runs-on: ubuntu-latest
+
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-      -
-        name: Unshallow
-        run: git fetch --prune --unshallow
-      -
-        name: Set up Go
-        uses: actions/setup-go@v1
-        with:
-          go-version: 1.14.x
-      -
-        name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v1
-        with:
-          version: latest
-          args: release --rm-dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Install Go
+      uses: actions/setup-go@v1
+      
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Build
+      run: go build -o hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }} 
+      env:
+        GOOS: ${{ matrix.go-os }}
+        GOARCH: ${{ matrix.go-arch }}
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        # Artifact name
+        name: main-${{ matrix.go-os }}-${{ matrix.go-arch }}
+        # Directory containing files to upload
+        path: main-${{ matrix.go-os }}-${{ matrix.go-arch }}
