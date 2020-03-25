@@ -7,8 +7,8 @@ jobs:
         go-os: [linux, darwin, windows]
         go-arch: [amd64]
         include:
-          - os: linux
-            arch: arm
+          - go-os: linux
+            go-arch: arm
     runs-on: ubuntu-latest
 
     steps:
