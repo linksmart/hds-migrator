@@ -12,7 +12,8 @@ jobs:
     steps:
     - name: Install Go
       uses: actions/setup-go@v1
-      
+      with:
+        go-version: 1.14.x
     - name: Checkout code
       uses: actions/checkout@v2
       
@@ -25,6 +26,6 @@ jobs:
       uses: actions/upload-artifact@v1.0.0
       with:
         # Artifact name
-        name: main-${{ matrix.go-os }}-${{ matrix.go-arch }}
+        name: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
         # Directory containing files to upload
-        path: main-${{ matrix.go-os }}-${{ matrix.go-arch }}
+        path: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
