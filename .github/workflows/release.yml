@@ -6,6 +6,9 @@ jobs:
       matrix:
         go-os: [linux, darwin, windows]
         go-arch: [amd64]
+        include:
+          - os: linux
+            arch: arm
     runs-on: ubuntu-latest
 
     steps:
@@ -28,8 +31,11 @@ jobs:
         name: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
         # Directory containing files to upload
         path: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
-    - name: Release
-      if: github.ref == 'ref/head/v*'
-      uses: softprops/action-gh-release@v0.1.5
+    - name: Upload releases
+      uses: svenstaro/upload-release-action@v1-release
       with:
-        files: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: hds-migrator-*
+        tag: ${{ github.ref }}
+        overwrite: true
+        file_glob: true
