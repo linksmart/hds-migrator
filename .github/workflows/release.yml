@@ -1,8 +1,7 @@
 on: [push, pull_request]
 name: Test
 jobs:
-  test:
-
+  build:
     strategy:
       matrix:
         go-os: [linux, darwin, windows]
@@ -29,3 +28,7 @@ jobs:
         name: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
         # Directory containing files to upload
         path: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
+    - name: Release
+      uses: softprops/action-gh-release@v0.1.5
+      with:
+        files: hds-migrator-${{ matrix.go-os }}-${{ matrix.go-arch }}
